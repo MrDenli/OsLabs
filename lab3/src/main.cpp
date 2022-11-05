@@ -175,7 +175,7 @@ int main(int argc, char const *argv[])
 			arg.B[i][j].b = B[i][j].b;
 		}
 	}
-    chrono::steady_clock::time_point begin = chrono::steady_clock::now();
+    	chrono::steady_clock::time_point begin = chrono::steady_clock::now();
 	for (int i = 0; i < count_threads; i++) {
 		arg.num_of_thread = i;
 		if (i == count_threads - 1) {
@@ -192,7 +192,7 @@ int main(int argc, char const *argv[])
 	for (int i = 0; i < count_threads; ++i) {
 		pthread_join(threads[i], NULL);
 	}
-    chrono::steady_clock::time_point end = chrono::steady_clock::now();
+    	chrono::steady_clock::time_point end = chrono::steady_clock::now();
  
 	pthread_mutex_destroy(&mutex);
 	cout << "Получившаяся матрица:" << endl;
@@ -203,7 +203,7 @@ int main(int argc, char const *argv[])
 		}
 		cout << endl;
 	}
-    cout<<chrono::duration_cast<chrono::microseconds>(end-begin).count() << endl;
+    	cout<<chrono::duration_cast<chrono::microseconds>(end-begin).count() << endl;
 	return 0;
  
 }
