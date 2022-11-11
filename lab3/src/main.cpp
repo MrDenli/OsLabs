@@ -80,20 +80,7 @@ void* thread_func(void *args)
 	int m2 = arguments->m2;
 	int n_ans =  arguments->n_ans;
 	int m_ans = arguments->m_ans;
-	/*vector<vector<complex_number>> A(n1, vector<complex_number>(m1));
-	vector<vector<complex_number>> B(n2, vector<complex_number>(m2));
-	for (int i = 0; i < n1; i++) {
-		for (int j = 0; j < m1; j++) {
-			A[i][j] = arguments->A[i][j];
-		}
-	}
-	for (int i = 0; i < n2; i++) {
-		for (int j = 0; j < m2; j++) {
-			B[i][j] = arguments->B[i][j];
-		}
-	}*/
 	for (int i = 0; i < partition; i++) {
-		//cout << "считается ячейка :" << cell << endl;
 		int I = num_of_thread * partition + i;
 		for (int J = 0; J < m_ans; J++) {
 			for (int k = 0; k < m1; k++) {
@@ -142,19 +129,6 @@ int main(int argc, char const *argv[])
  		A.resize(n1, vector<complex_number>(m1,complex_number{}));
  		B.resize(n2, vector<complex_number>(m2,complex_number{}));
  	}
-	/*cout << "Ведите размер первой матрицы" << endl;
-	cin >> n1 >> m1;
-	vector<vector<complex_number>> A(n1, vector<complex_number>(m1,complex_number{}));
-	vector<vector<complex_number>> A(n1, vector<complex_number>(m1));
-	cout << "Ведите первую матрицу" << endl;
-	for (int i = 0; i < n1; i++) {
-		for (int j = 0; j < m1; j++) {
-			A[i][j] = read_complex_number();
-		}	
-	}
-	cout << "Ведите размер второй матрицы" << endl;
-	cin >> n2 >> m2;*/
-
 	if (m1 != n2) {
 		cout << "Матрицы таких размеров нельзя перемножить" << endl;
 		return 0;
@@ -162,15 +136,6 @@ int main(int argc, char const *argv[])
 
 	int n_ans = n1;
 	int m_ans = m2;
-
-	/*vector<vector<complex_number>> B(n2, vector<complex_number>(m2,complex_number{}));
-	vector<vector<complex_number>> B(n2, vector<complex_number>(m2));
-	cout << "Введите вторую матрицу" << endl;
-	for (int i = 0; i < n2; i++) {
-		for (int j = 0; j < m2; j++) {
-			B[i][j] = read_complex_number();
-		}
-	}*/
 	answer.resize(n1);
 	for (int i = 0; i < n1; i++) {
 		answer[i].resize(m2);
